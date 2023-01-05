@@ -1,5 +1,5 @@
 const express = require('express')
-const { getHomePage, getAboutPage } = require('../controllers/HomeController.js')
+const { getHomePage, getAboutPage, createUser, getuser, testOk } = require('../controllers/HomeController.js')
 const router = express.Router()
 
 let initWebRoutes = (app) => {
@@ -7,7 +7,9 @@ let initWebRoutes = (app) => {
 		return res.send("hello world with eric")
 	})
 	router.get('/about', getHomePage)
-	router.get('/crud', getCRUD)
+	router.post('/createuser', createUser)
+	router.get('/getuser', getuser)
+	router.get('/test', testOk)
 	return app.use("/", router)
 }
 
